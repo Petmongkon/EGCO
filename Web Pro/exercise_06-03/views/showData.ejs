@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <br>
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                          <h3 class="panel-title">List of Students</h3>  
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <form action="/searchStudent" method="get">
+                                <label  class="col-sm-2 control-label">Search :</label>
+                                <input type="text" name="search"/>
+                                <input type="submit"/>
+                            </form>
+                            </div>
+                      <table>
+                          <th width=40>id</th>
+                          <th width=80>firstname</th>
+                          <th width=80>lastname</th>
+                          <th width=40>age</th>
+                          <th></th>
+                          <% data.forEach(function(dat){ %>
+                              <tr>
+                                  <td><%=dat.id%></td>
+                                  <td><%=dat.firstname%></td>
+                                  <td><%=dat.lastname%></td>
+                                  <td><%=dat.age%></td>  
+                                  <td>
+                                        <a href="/deleteStudent/<%= dat.firstname%>" class="btn btn-success">Delete</a>
+                                    </td> 
+                              </tr>
+                            <% }); %>
+                      </table> 
+                    </div>
+                    <div class="panel-footer">
+                          <a href="/addStudent" class="btn btn-success">Insert</a>
+                    </div>
+              </div>
+            </div>
+        </div>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>

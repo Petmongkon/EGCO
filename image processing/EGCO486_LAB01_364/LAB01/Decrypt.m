@@ -1,0 +1,27 @@
+function  Decrypt(key)
+%DECRYPT Summary of this function goes here
+%   Detailed explanation goes here
+
+output = imread('output.bmp');       
+[x y z] = size(output);
+for i = 1 :x
+    for j = 1:y
+        for k = 1:z
+            if(output(i,j,k)==key(256))
+                input(i,j,k)=0;
+            else
+                temp = output(i,j,k);
+                input(i,j,k) = find(ismember(key,temp));
+            end
+        end
+    end
+end
+input1=uint8(input);
+
+
+figure;
+subplot(1,2,1); imshow(output);
+subplot(1,2,2); imshow(input1);
+
+end
+

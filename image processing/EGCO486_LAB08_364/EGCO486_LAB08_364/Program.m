@@ -1,0 +1,4 @@
+Mymanualthre;
+Myautothre;
+MyKmean;
+
